@@ -1,0 +1,77 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+@media(min-width:992px){
+  /* sidebar  */
+#invensys_sidebar{
+width: 200px;
+height: 100vh;
+position: fixed;
+background: #ffffff;
+
+}
+#invensys_sidebar ul{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 30px 0;
+}
+#invensys_sidebar ul li a{
+ display: block;
+ padding:  15px 0px;
+ text-align:left;
+ padding-left: 25px;
+ color: #9e9d9d;
+ text-decoration: none;
+ transition: .4s ease-in-out;
+
+}
+#invensys_sidebar ul li a:hover{
+  color: #1641ff;
+
+}
+
+/* main content  */
+#main_content{
+  margin-left:201px;
+  
+}
+}
+@media(min-width:768px){
+  #invensys_sidebar{
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    background: #ffffff;
+    
+    }
+    #invensys_sidebar ul{
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 30px 0;
+    }
+    #invensys_sidebar ul li a{
+     display: block;
+     padding:  15px 0px;
+     text-align:left;
+     padding-left: 25px;
+     color: #9e9d9d;
+     text-decoration: none;
+     transition: .4s ease-in-out;
+    
+    }
+    #invensys_sidebar ul li a:hover{
+      color: #1641ff;
+    
+    }
+    #main_content{
+      margin-left:201px;
+      
+    }
+
+}
