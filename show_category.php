@@ -17,7 +17,7 @@ if(mysqli_num_rows($result) > 0 ){
               </tr>';
 
               while($row = mysqli_fetch_assoc($result)){
-                $output .= "<tr><td>{$row["cate_name"]}</td><td>{$row["cate_status"]} <td align='center'><button class='btn btn-warning edit_btn' data-eid='{$row["id"]}'>Edit</button></td><td align='center'><button Class='btn btn-danger delete_btn ' data-id='{$row["id"]}'>Delete</button></td></tr>";
+                $output .= "<tr><td>{$row["cate_name"]}</td><td>{$row["cate_status"]} <td align='center'><button class='btn btn-warning edit_btn' data-eid='{$row["id"]}' >Edit</button></td><td align='center'><button Class='btn btn-danger delete_btn ' data-id='{$row["id"]}'>Delete</button></td></tr>";
               }
     $output .= "</table>";
 

@@ -7,6 +7,9 @@
             <a href="category.php">Category</a>
         </li>
         <li>
+            <a href="subcategory.php">SubCategory</a>
+        </li>
+        <li>
             <a href="">Products</a>
         </li>
         <li>

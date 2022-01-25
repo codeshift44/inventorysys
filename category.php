@@ -58,7 +58,7 @@
   </main>
 </div>
 
-<div class="modal" tabindex="-1" id="catemodal'>
+<div class="modal" tabindex="-1" id="catemodal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -68,12 +68,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <table class="table">
+          
+        </table>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
@@ -161,23 +160,42 @@
 
       //Show Modal Box
       $(document).on("click",".edit_btn", function(){
-      $(".modal").show();
+      $(".modal").slideDown();
       var studentId = $(this).data("eid");
 
-      // $.ajax({
-      //   url: "load-update-form.php",
-      //   type: "POST",
-      //   data: {id: studentId },
-      //   success: function(data) {
-      //     $("#modal-form table").html(data);
-      //   }
-      // })
+       $.ajax({
+        url: "cate_update.php",
+        type: "POST",
+         data: {id: studentId },
+         success: function(data) {
+          $(".modal table").html(data);
+        }
+      })
     });
 
     //Hide Modal Box
-    $("#close-btn").on("click",function(){
-      $(".modal").hide();
+    $("#close-btn").on("click", function(){
+      $(".modal").slideUp();
     });
+
+    $(document).on("click","#edit-submit", function(){
+        var cateId = $("#edit-id").val();
+        var name = $("#edit-name").val();
+        var status = $("#edit-status").val();
+
+        $.ajax({
+          url: "cate_update.config.php",
+          type : "POST",
+          data : {id: cateId, name: name, cateStatus: status},
+          success: function(data) {
+            if(data == 1){
+              $(".modal").hide();
+              
+              loadData();
+            }
+          }
+        })
+      });
 
 
  
