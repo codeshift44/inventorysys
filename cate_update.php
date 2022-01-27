@@ -13,7 +13,7 @@ if(mysqli_num_rows($result) > 0 ){
   while($row = mysqli_fetch_assoc($result)){
     $output .= "<tr>
       <td width='90px'>category</td>
-      <td><input class='form-control' type='text' id='edit-name' value='{$row["cate_name"]}'>
+      <td><input class='form-control my-2' type='text' id='edit-name' value='{$row["cate_name"]}'>
             <input class='hidden' type='text' id='edit-id' hidden value='{$row["id"]}'>
       </td>
     </tr>
@@ -23,7 +23,7 @@ if(mysqli_num_rows($result) > 0 ){
     </tr>
     <tr>
       <td></td>
-      <td><input class='btn btn-success' type='submit' id='edit-submit' value='save'></td>
+      <td><input class='btn btn-success my-2' type='submit' id='edit-submit' value='save'></td>
     </tr>";
 
   }

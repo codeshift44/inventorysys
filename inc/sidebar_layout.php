@@ -10,7 +10,7 @@
             <a href="subcategory.php">SubCategory</a>
         </li>
         <li>
-            <a href="">Products</a>
+            <a href="products.php">Products</a>
         </li>
         <li>
             <a href="">Customers</a>

@@ -5,7 +5,7 @@
   
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link"><i class="fas fa-user"></i></a>
+        <a  href="#" class="nav-link">account</a>
       </li>
     </ul>
    
