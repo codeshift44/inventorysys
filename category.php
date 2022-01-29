@@ -47,9 +47,7 @@ include("inc/sidebar_layout.php");
           <div class="card-body">
             <div id="show_data"></div>
             
-            <div class="text-center">
-              
-            </div>  
+            
           </div>
         
       </div>

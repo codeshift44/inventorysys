@@ -15,12 +15,12 @@
 </nav>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal">
   Add Product
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,33 +30,41 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form action="" id="product_form">
             <div class="form-group">
-                <input type="text" class="form-control" name="product_name" placeholder="product name" autocomplete="off" required>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="product_id" placeholder="product name" autocomplete="off" required>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="product_cate" placeholder="product name" autocomplete="off" required>
+                <input type="text" class="form-control" name="product_id" placeholder="product id" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="product_name" placeholder="product name" autocomplete="off" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="product_name" placeholder="product name" autocomplete="off" required>
+                <input type="text" class="form-control" name="product_cate" placeholder="product category" autocomplete="off" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="product_name" placeholder="product name" autocomplete="off" required>
+                <input type="text" class="form-control" name="product_subcate" placeholder="sub category" autocomplete="off" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="product_name" placeholder="product name" autocomplete="off" required>
+                <input type="text" class="form-control" name="product_brand" placeholder="brand" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="product_price" placeholder="price" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="product_stock" placeholder="stock" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="product_status" placeholder="status" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Add</button>
             </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="text-center my-2">
+            <div class="text-danger" id="error-message"></div>
+          <div class="text-success" id="success-message"></div>
+          </div>
       </div>
     </div>
   </div>
@@ -74,9 +82,7 @@
           <div class="card-body">
             <div id="show_data"></div>
             
-            <div class="text-center">
-              
-            </div>  
+            
           </div>
         
       </div>
@@ -90,70 +96,70 @@
 
 
 <!-- <script src="js/jquery.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
-//   $(document).ready(function(){
+  $(document).ready(function(){
     
-//   function loadData(){
-//       $.ajax({
-//       url: "show_subcategory.php",
-//       type: "POST",
+  function loadData(){
+      $.ajax({
+      url: "show_product.php",
+      type: "POST",
      
-//       cache : false,
-//       success: function(data){
-//         $("#show_data").html(data);
-//       }
-//     });
-//     }
-//     loadData();
+      cache : false,
+      success: function(data){
+        $("#show_data").html(data);
+      }
+    });
+    }
+    loadData();
    
     
   
 
-//   $("#subcate_form").on("submit", function(e){
-//     e.preventDefault();
-//     var formData = new FormData(this);
+  $("#product_form").on("submit", function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
 
-//     $.ajax({
-//       url: "add_subcategory.php",
-//       type: "POST",
-//       data: formData,
-//       contentType: false,
-//       processData : false,
-//       success: function(data){
+    $.ajax({
+      url: "add_product.php",
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData : false,
+      success: function(data){
          
-//         if(data == 3){
-//           $("#error-message").html("fill all fields").slideDown();
-//           $("#success-message").slideUp();
-//         }else if(data == 2){
-//           $("#error-message").html("subcategory all ready exits").slideDown();
-//           $("#success-message").slideUp();
-//         }else if(data == 0){
-//           loadData();
-//           $("#success-message").html("subcategory added successful").slideDown();
-//           $("#error-message").hide();
-//         }else{
-//           $("#error-message").html("somthing went wrong please retry");
-//           $("#success-message").hide();
-//         }
+        // if(data == 3){
+        //   $("#error-message").html("fill all fields").slideDown();
+        //   $("#success-message").slideUp();
+        // }else if(data == 2){
+        //   $("#error-message").html("product all ready exits").slideDown();
+        //   $("#success-message").slideUp();
+        // }else if(data == 0){
+        //   loadData();
+        //   $("#success-message").html("product added successful").slideDown();
+        //   $("#error-message").hide();
+        // }else{
+        //   $("#error-message").html("somthing went wrong please retry");
+        //   $("#success-message").hide();
+        // }
         
-//         $("#subcate_form").trigger("reset");
-//         $("#success-message").hide();
-//         $("#error-message").hide();
+        $("#product_form").trigger("reset");
+        $(".modal, .fade").hide();
+        
 
 
       
         
-//       }
+      }
 
 
        
 
-//     });
+    });
 
-//   });
+  });
 
 //   // delete 
 
@@ -215,7 +221,7 @@
 
 
  
-// });
+});
 </script>
 
 <script src="js/bootstrap.bundle.min.js"></script>
